@@ -47,17 +47,20 @@ public class PlayerMovement : MonoBehaviour
         {
             if (jump == 0)
             {
-                rb.velocity = new Vector2(rb.velocity.x, jumpForce);
-                jump++;
+                if (rb.bodyType != RigidbodyType2D.Static)
+                {
+                    rb.velocity = new Vector2(rb.velocity.x, jumpForce);
+                    jump++;
+                }
             }
             else if (jump == 1 && IsGrounded())
             {
-                rb.velocity = new Vector2(rb.velocity.x, jumpForce);
-                jump++;
+                if (rb.bodyType != RigidbodyType2D.Static)
+                {
+                    rb.velocity = new Vector2(rb.velocity.x, jumpForce);
+                    jump++;
+                }
             }
-           
-
-
         }
 
        UpdateAnimationState();
