@@ -18,7 +18,6 @@ public class PlayerMovement : MonoBehaviour
 
     private int jump = 0;
 
-
     private enum MovementState { idle, running, jumping, falling }
 
     [SerializeField] private AudioSource jumpSoundEffect;
@@ -59,9 +58,6 @@ public class PlayerMovement : MonoBehaviour
                 rb.velocity = new Vector2(rb.velocity.x, jumpForce);
                 jump++;
             }
-           
-
-
         }
 
        UpdateAnimationState();
