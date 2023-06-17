@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class NewBehaviourScript : MonoBehaviour
 {
@@ -15,13 +16,14 @@ public class NewBehaviourScript : MonoBehaviour
         if(collision.gameObject.name == "MainPlayer")
         {
             finishSound.Play();
-            CompleteLevel();
+            Invoke("CompleteLevel", 1f);
+            //CompleteLevel();
         }
     }
 
     private void CompleteLevel()
     {
-
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 
 }
