@@ -7,6 +7,9 @@ public class ItemCollector : MonoBehaviour
 {
     private int gold_coin = 0;
 
+    private SpriteRenderer sprite;
+    private Color oldColor;
+
     [SerializeField] private Text coinsText;
 
     [SerializeField] private AudioSource collectionSoundEffect;
@@ -19,7 +22,22 @@ public class ItemCollector : MonoBehaviour
             Destroy(collision.gameObject);
             gold_coin++;
             coinsText.text = "Coins: " + gold_coin;
+
+            sprite.color = Color.Lerp(oldColor,Color.white, 0.1f);
         }
     }
+
+    private void Start()
+    {
+        sprite = GetComponent<SpriteRenderer>();   
+        
+    }
+
+    private void Update()
+    {
+        oldColor = sprite.color;
+    }
+
+
 
 }
