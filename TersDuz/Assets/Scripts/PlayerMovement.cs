@@ -3,12 +3,13 @@ using System.Collections.Generic;
 using System.Net.Security;
 using UnityEngine;
 
+
 public class PlayerMovement : MonoBehaviour
 {
     private float horizontal = 0f;
     [SerializeField] private float moveSpeed = 8f;
     [SerializeField] private float jumpingPower = 16f;
-    
+    private bool isCrouching = false;
 
     private Rigidbody2D rb;
     private BoxCollider2D coll;
@@ -20,8 +21,9 @@ public class PlayerMovement : MonoBehaviour
 
 
     private int jump = 0;
+    
 
-    private enum MovementState { idle, running, jumping, falling }
+    private enum MovementState { idle, running, jumping, falling, crouch }
 
     [SerializeField] private AudioSource jumpSoundEffect;
     
@@ -37,12 +39,12 @@ public class PlayerMovement : MonoBehaviour
     {
         horizontal = Input.GetAxisRaw("Horizontal");
 
-        if(rb.bodyType != RigidbodyType2D.Static)
+        if (rb.bodyType != RigidbodyType2D.Static)
         {
             rb.velocity = new Vector2(horizontal * moveSpeed, rb.velocity.y);
         }
 
-        if(IsGrounded())
+        if (IsGrounded())
         {
             jump = 0;
         }
@@ -63,10 +65,15 @@ public class PlayerMovement : MonoBehaviour
             }
         }
 
-        UpdateAnimationState();
-        
-    }
+        if(Input.GetKey(KeyCode.S)) 
+        {
+            isCrouching = true;
+        }
+        else { isCrouching = false; }
 
+        UpdateAnimationState();
+
+    }
 
 
     private void UpdateAnimationState()
@@ -103,12 +110,19 @@ public class PlayerMovement : MonoBehaviour
             state = MovementState.falling;
         }
 
+        if (isCrouching) 
+        {
+            state = MovementState.crouch;
+        }
+
         anim.SetInteger("state", (int)state);
     }
 
     private bool IsGrounded()
     {
         return Physics2D.BoxCast(coll.bounds.center, coll.bounds.size, 0f, Vector2.down, .1f, jumpableGround);
+
+       
     }
 
 }
