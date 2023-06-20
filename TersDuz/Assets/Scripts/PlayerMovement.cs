@@ -23,7 +23,7 @@ public class PlayerMovement : MonoBehaviour
     private int jump = 0;
     
 
-    private enum MovementState { idle, running, jumping, falling, crouch }
+    private enum MovementState { idle, running, jumping, falling, crouch, crawl }
 
     [SerializeField] private AudioSource jumpSoundEffect;
     
@@ -37,42 +37,8 @@ public class PlayerMovement : MonoBehaviour
 
     private void Update()
     {
-        horizontal = Input.GetAxisRaw("Horizontal");
-
-        if (rb.bodyType != RigidbodyType2D.Static)
-        {
-            rb.velocity = new Vector2(horizontal * moveSpeed, rb.velocity.y);
-        }
-
-        if (IsGrounded())
-        {
-            jump = 0;
-        }
-
-        if (Input.GetButtonDown("Jump"))
-        {
-            if (jump == 0)
-            {
-                jumpSoundEffect.Play();
-                rb.velocity = new Vector2(rb.velocity.x, jumpingPower);
-                jump++;
-            }
-            else if (jump == 1 && IsGrounded())
-            {
-                jumpSoundEffect.Play();
-                rb.velocity = new Vector2(rb.velocity.x, jumpingPower);
-                jump++;
-            }
-        }
-
-        if(Input.GetKey(KeyCode.S)) 
-        {
-            isCrouching = true;
-        }
-        else { isCrouching = false; }
-
+        Movement();
         UpdateAnimationState();
-
     }
 
 
@@ -113,6 +79,10 @@ public class PlayerMovement : MonoBehaviour
         if (isCrouching) 
         {
             state = MovementState.crouch;
+            if (horizontal > 0 || horizontal < 0)
+            {
+                state = MovementState.crawl;
+            }
         }
 
         anim.SetInteger("state", (int)state);
@@ -121,8 +91,52 @@ public class PlayerMovement : MonoBehaviour
     private bool IsGrounded()
     {
         return Physics2D.BoxCast(coll.bounds.center, coll.bounds.size, 0f, Vector2.down, .1f, jumpableGround);
-
-       
     }
 
+    private void Movement()
+    {
+        if (isCrouching)
+        {
+            horizontal = Input.GetAxisRaw("Horizontal") / 2;
+        }
+        else
+        {
+            horizontal = Input.GetAxisRaw("Horizontal");
+        }
+
+        if (rb.bodyType != RigidbodyType2D.Static)
+        {
+            rb.velocity = new Vector2(horizontal * moveSpeed, rb.velocity.y);
+        }
+
+        if (IsGrounded())
+        {
+            jump = 0;
+        }
+
+        if (Input.GetButtonDown("Jump"))
+        {
+            if (jump == 0)
+            {
+                jumpSoundEffect.Play();
+                rb.velocity = new Vector2(rb.velocity.x, jumpingPower);
+                jump++;
+            }
+            else if (jump == 1 && IsGrounded())
+            {
+                jumpSoundEffect.Play();
+                rb.velocity = new Vector2(rb.velocity.x, jumpingPower);
+                jump++;
+            }
+        }
+
+        if (Input.GetKey(KeyCode.S) && IsGrounded())
+        {
+            isCrouching = true;
+        }
+        else
+        {
+            isCrouching = false;
+        }
+    }
 }
