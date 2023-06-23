@@ -1,0 +1,22 @@
+PROJECT: What if it wasn't discovered ?
+
+HİKAYE: Dünyadaki ilk insanlardan günümüze kadar yapılan keşifler, buluşlar veya icatlardan bazıları olmasaydı nasıl bir dünya olurdu?
+
+TEMA: Yapılan seçimlere göre insanlığın gidişatını ve geleceğini belirlediğimiz bir temaya sahip.
+
+OYUN MEKANİKLERİ: 
+
+-Yön Tuşları = Seçenekler arasında geçiş.
+-Enter = Seçme, onaylama
+-Mouse = Seçme, onaylama
+
+PLATFORM: -
+
+TÜR: 
+-Hayatta kalma
+-Strateji
+-Önemli Seçimler
+-Point & Click
+
+
+

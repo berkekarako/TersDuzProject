@@ -1,0 +1,40 @@
+PROJECT: TersDüz
+
+TEMA: 2D soldan sağa doğru koşan ve basit engelleri zıplayarak veya eğilerek geçmeye çalışan bir karakterimiz var.
+
+OYUN MEKANİKLERİ:
+-Engellerimiz oldukça basit.
+ * Yerden 1 birim yüksek olan engelimizden "W" tuşuna sadece bas çek yaparak geçiyoruz.
+ * Yerden 2 birim yüksek olan engelimizden "W" tuşuna basılı tutarak geçiyoruz.
+ * Yerden 3 birim yüksek olan engelimizden "W" tuşuna 2 kez basıp double jump yaparak geçiyoruz.
+ * Sadece 1 birim boşluk olan yerlerden "S" tuşuna basıp geçebiliyoruz.
+
+-Oyunu fazlasıyla zorlaştıracak olan özelliklere gelelim;
+ *Engeller karakterimizi direkt öldürmüyor.
+ *Harita sürekli sağ tarafa doğru ilerliyor ve haritanın gerisinde kalırsak ölüyoruz.
+ *Geride kalmamak için engellere takılmadan geçmek gerekiyor.
+ *Oyunu asıl zorlaştıran ve diğer oyunlardan farklı kılan bir özelliğimiz daha var.
+ *Sağa doğru ilerleyen haritamızda belirli aralıklarla kırmızı alanlar gelicek.
+ *Normalde oyuna başladığımızda mavi arka planda oynuyoruz.
+ *Mesela oyun 25 birim arka planı mavi şekilde devam ediyorken ardından 15 birim arka planı kırmızı şekilde devam edicek.
+ *Bu kırmızı alanlarda her şey tersine dönüyor. 
+ *İleriye gitmek için artık "A" tuşuna basılmalı.
+ *Geriye gitmek için artık "D" tuşuna basılmalı.
+ *Zıplamak için artık "S" tuşuna basılmalı.
+ *Eğilmek için artık "W" tuşuna basılmalı.
+ 
+MODLAR:
+-Sınırsız Mod= Dayanabildiğin kadar oynarsın.(Başlangıçtan ölünen yere kadar aşılan yol skor olur)
+-Level= Farklı leveller tasarlanır ve oyun oynanırken alt kısımda yüzde şeklinde ilerleme gösterilir.
+-Hard Mod= Klasik oyundan farklı olarak yukardan engeller düşer ve bu engeller karaktere temas ederse GAME OVER.
+
+DETAYLI AÇIKLAMA:
+-Oyun fazla zor olucak ve zor oyunları seven birçok insanın ilgisini çekeceğine eminim.
+-Oyundaki zorluğu anlayamayanlar için; Mavi alanda "W" tuşuna basıp engellerimizi aşıp ilerlerken, kırmızı alana tam gireceğimiz yerde
+ilerlemeye devam etmek için kırmızı alana girdiğimiz anda "S" tuşuna basılı tutup ilerlemeye devam etmeliyiz.
+-Zamanlama çok önemli çünkü, kırmızı alana tam girmeden "S" tuşuna basarsak karakter geri yürüyecek ve ekran ilerlediği için ölebiliriz.
+-Karakter kırmızı alana girdiğinde "W" tuşuna basmaya devam ediyorsa yine geri yürüyeceği için ve ekran ilerlediği için ölebiliriz.
+-Ayrıca mavi alandan kırmızı alana gerçerken sürekli "W" tuşuna basılı tutarsak, karakter iki alan arasında sürekli ileri geri yapıyor olarak gözükür.
+
+NOT: Çoğu şeyi yazarken düşnüp ekledim. Üzerinde daha fazla düşünüp değiştirilebilir. Amacım gerçekten çok zorlayıcı, basit görünümlü bir parkur oyunu yapmak.
+ 

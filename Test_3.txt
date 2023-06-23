@@ -1,0 +1,37 @@
+PROJECT: Photo Race
+
+TEMA: Haftalık, günlük veya belirli saatler arası düzenlenen konulu fotoğraf yarışması.
+
+
+DETAYLI ANLATIM: 
+-Bu uygulamayı instagram ile Makeitmeme uygulamalarının birleşimine benzetebiliriz.
+
+-Konulu fotoğraf ne demek?
+ *Uygulamaya önceden hazırlayacağımız fotoğrafı çekilebilecek yüzlerce konu ekleyeceğiz.
+ *Örneğin: Uyuyan kedi, Çiçek, Deniz kenarı, Kahve ...
+
+-Kullanıcıların her zaman katılabilceği 3 lobimiz olucak. Bunlar; saatlik lobi, günlük lobi, haftalık lobi.
+-Saatlik lobi: 2 saat açık kalan bir lobi.
+-Günlük lobi: 24 saat açık kalan bir lobi.
+-Haftalık lobi: 168 saat açık kalan bir lobi.
+
+-Mesela şu an saat 15:18 ve uygulamayı açtığımızda karşımızda 3 tane lobi göreceğiz.
+
+|  Konu: Kaldırım  |    |  Konu: Ağaç      |
+|  Tür:Siyah Beyaz |    |  Tür:Yakın Çekim |
+|                  |    |                  |
+|      GÜNLÜK      |    |    HAFTALIK      |      SAATLİK LOBİLER 2 SAATTE BİR YENİ KONUYLA BERABER DEĞİŞMEKTEDİR.
+|     KALAN SÜRE   |    |   KALAN SÜRE     |
+|     8.42 Saat    |    |   43.21 Saat     |
+
+-Kullanıcaların paylaştığı fotoğraflara her bir kullanıcı ifade bırakabilir. 
+-İfadelerin puanları vardır.
+-Yarışma bittikten sonra en çok puanı kazananan ilk 3 kişi profilinde gösterebildiği bir madalya kazanır. (Steamde başarıları göstermek gibi)
+-İnstagram profili gibi yarışmalara katıldığı fotoğraflar ve bu fotoğrafla kaçıncı olduğunu diğer tüm kullanıcılar profilinize girip görebilir.
+-Kullanıcılar lobilere girdiğinde fotoğraf paylaşmak zorunda değilller. Sadece paylaşılan fotoğraflara bakmaya ve beğendikleri fotoğraflara ifade bırakmaya girebilirler.
+
+
+GETİRİLEBİLECEK DEĞİŞİKLİKLER:
+-Bu uygulama para ödüllü bir sistem eklenerek değiştirilebilir.
+
+
