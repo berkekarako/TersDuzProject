@@ -21,6 +21,9 @@ public class PlayerMovement : MonoBehaviour
 
 
     private int jump = 0;
+    private Vector2 originalColliderSize;
+    private Vector2 originalColliderOffSet;
+    
     
 
     private enum MovementState { idle, running, jumping, falling, crouch, crawl }
@@ -33,6 +36,10 @@ public class PlayerMovement : MonoBehaviour
         coll = GetComponent<BoxCollider2D>();
         sprite = GetComponent<SpriteRenderer>();
         anim = GetComponent<Animator>();
+
+        originalColliderSize = coll.size;
+        originalColliderOffSet = coll.offset;
+
     }
 
     private void Update()
@@ -98,10 +105,13 @@ public class PlayerMovement : MonoBehaviour
         if (isCrouching)
         {
             horizontal = Input.GetAxisRaw("Horizontal") / 2;
+            Crouch();
         }
         else
         {
             horizontal = Input.GetAxisRaw("Horizontal");
+            coll.size = originalColliderSize;
+            coll.offset = originalColliderOffSet;
         }
 
         if (rb.bodyType != RigidbodyType2D.Static)
@@ -138,5 +148,17 @@ public class PlayerMovement : MonoBehaviour
         {
             isCrouching = false;
         }
+    }
+
+    private void Crouch()
+    {
+        Vector2 newColliderSize = originalColliderSize;
+        newColliderSize.y /= 2;
+        coll.size = newColliderSize;
+
+        Vector2 colliderOffset = originalColliderOffSet;
+        colliderOffset.y -= originalColliderSize.y / 4;
+        coll.offset = colliderOffset;
+
     }
 }
